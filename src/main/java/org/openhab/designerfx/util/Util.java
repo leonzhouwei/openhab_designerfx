@@ -2,6 +2,7 @@ package org.openhab.designerfx.util;
 
 import java.io.File;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.DirectoryChooser;
@@ -23,14 +24,31 @@ public class Util {
 		return chooser.showDialog(primaryStage);
 	}
 
-	public static void setErrorMessage(Label msgLabel, String message) {
-		msgLabel.setTextFill(Color.RED);
-		msgLabel.setText(message);
+	public static void setErrorMessage(final Label msgLabel,
+			final String message) {
+		Runnable r = new Runnable() {
+			@Override
+			public void run() {
+				msgLabel.setTextFill(Color.RED);
+				msgLabel.setText(message);
+			}
+		};
+		runLaterInJavaFXAppThread(r);
 	}
 
-	public static void setNormalMessage(Label label, String message) {
-		label.setTextFill(Color.BLACK);
-		label.setText(message);
+	public static void setNormalMessage(final Label label, final String message) {
+		Runnable r = new Runnable() {
+			@Override
+			public void run() {
+				label.setTextFill(Color.BLACK);
+				label.setText(message);
+			}
+		};
+		runLaterInJavaFXAppThread(r);
 	}
-	
+
+	public static void runLaterInJavaFXAppThread(Runnable r) {
+		Platform.runLater(r);
+	}
+
 }
