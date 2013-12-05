@@ -10,15 +10,15 @@
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <context:annotation-config />
-    <context:component-scan base-package="org.openhab.ui.client" />
+    <context:component-scan base-package="org.openhab.ui.client.javafx" />
     
-    <bean class="org.openhab.ui.client.Startup" factory-method="getController">
+    <bean class="org.openhab.ui.client.javafx.Startup" factory-method="getController">
         <constructor-arg>
             <value>Configuration.fxml</value>
         </constructor-arg>
     </bean>
     
-    <bean class="org.openhab.ui.client.Startup" factory-method="getController">
+    <bean class="org.openhab.ui.client.javafx.Startup" factory-method="getController">
         <constructor-arg>
             <value>Main.fxml</value>
         </constructor-arg>

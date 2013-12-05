@@ -1,4 +1,4 @@
-package org.openhab.ui.client;
+package org.openhab.ui.client.javafx;
 
 import org.junit.After;
 import org.junit.Before;

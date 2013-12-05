@@ -1,4 +1,4 @@
-package org.openhab.ui.client;
+package org.openhab.ui.client.javafx;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
-import org.openhab.ui.client.controller.MainController;
+import org.openhab.ui.client.javafx.controller.MainController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
