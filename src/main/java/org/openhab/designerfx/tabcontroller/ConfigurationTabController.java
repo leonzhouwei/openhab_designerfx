@@ -9,7 +9,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 import org.openhab.designerfx.common.Config;
-import org.openhab.designerfx.common.Define;
+import org.openhab.designerfx.common.Constants;
 import org.openhab.designerfx.controller.MainController;
 import org.openhab.designerfx.util.Util;
 import org.openhab.designerfx.view.GuiElemDefine;
@@ -22,22 +22,19 @@ public class ConfigurationTabController {
 	private Parent root;
 	@FXML
 	private TreeView<String> treeView;
+	private TreeItem<String> treeItemOfItems = new TreeItem<String>(GuiElemDefine.ITEMS);
+	private TreeItem<String> treeItemOfSitemaps = new TreeItem<String>(GuiElemDefine.SITEMAPS);
 	
 	public void init() {
+		treeItemOfItems.setExpanded(true);
+		treeItemOfItems.getChildren().clear();
+		treeItemOfSitemaps.setExpanded(true);
+		treeItemOfSitemaps.getChildren().clear();
 		TreeItem<String> root = new TreeItem<String>(GuiElemDefine.CONFIGRATIONS);
 		treeView.setRoot(root);
 		root.setExpanded(true);
-		TreeItem<String> item = null;
-		item = new TreeItem<String>(GuiElemDefine.ITEMS);
-		root.getChildren().add(item);
-		item = new TreeItem<String>(GuiElemDefine.SITEMAPS);
-		root.getChildren().add(item);
-		item = new TreeItem<String>(GuiElemDefine.RULES);
-		root.getChildren().add(item);
-		item = new TreeItem<String>(GuiElemDefine.SCRIPTS);
-		root.getChildren().add(item);
-		item = new TreeItem<String>(GuiElemDefine.TRANSFORMATIONS);
-		root.getChildren().add(item);
+		root.getChildren().add(treeItemOfItems);
+		root.getChildren().add(treeItemOfSitemaps);
 	}
 	
 	public Parent getView() {
@@ -56,10 +53,20 @@ public class ConfigurationTabController {
 		if (confDir == null || confDir.isDirectory() == false) {
 			return;
 		}
-		String path = null;
-		List<String> names = null;
-		path = confDir.getPath() + Define.FILE_SEPARATOR + Config.getItemsDirBaseName();
-		names = Util.listRegularFileNames(path, ".items");
+		File dir = null;
+		List<File> files = null;
+		dir = new File(confDir.getPath() + Constants.FILE_SEPARATOR + Config.getItemsDirBaseName());
+		files = Util.listRegularFileNames(dir, Constants.ITEMS_FILE_EXTENSION);
+		List<String> baseNames = Util.baseNames(files, Constants.ITEMS_FILE_EXTENSION);
+		setNonLeafNode(treeItemOfItems, baseNames);
+	}
+	
+	public void setNonLeafNode(TreeItem<String> parent, List<String> baseNames) {
+		parent.getChildren().clear();
+		for (String baseName : baseNames) {
+			TreeItem<String> child = new TreeItem<String>(baseName);
+			parent.getChildren().add(child);
+		}
 	}
 	
 }

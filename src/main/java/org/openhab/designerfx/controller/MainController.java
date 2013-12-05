@@ -30,7 +30,7 @@ public class MainController extends BaseController {
 	private MenuItem openFolderMenuItem;
 	
 	@Resource
-	private ConfigurationTabController confController;
+	private ConfigurationTabController confTabController;
 
 	@Override
 	public Parent getView() {
@@ -39,9 +39,9 @@ public class MainController extends BaseController {
 
 	public void init() {
 		stage.setTitle(GuiElemDefine.MAIN_WINDOW_TTTLE);
-		confController.setParent(this);
-		confController.init();
-		confTab.setContent(confController.getView());
+		confTabController.setParent(this);
+		confTabController.init();
+		confTab.setContent(confTabController.getView());
 	}
 	
 	@FXML
@@ -51,7 +51,7 @@ public class MainController extends BaseController {
 			if (folder == null) {
 				return;
 			}
-			confController.loadConfDir(folder);	
+			confTabController.loadConfDir(folder);	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
