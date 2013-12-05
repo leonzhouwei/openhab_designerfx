@@ -1,12 +1,14 @@
 package org.openhab.designerfx.tabcontroller;
 
+import java.io.File;
+
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
 import org.openhab.designerfx.controller.MainController;
-import org.openhab.designerfx.view.model.GuiElemDefine;
+import org.openhab.designerfx.view.GuiElemDefine;
 
 public class ConfigurationTabController {
 	
@@ -21,7 +23,7 @@ public class ConfigurationTabController {
 		TreeItem<String> root = new TreeItem<String>(GuiElemDefine.CONFIGRATIONS);
 		treeView.setRoot(root);
 		root.setExpanded(true);
-		TreeItem item = null;
+		TreeItem<String> item = null;
 		item = new TreeItem<String>(GuiElemDefine.ITEMS);
 		root.getChildren().add(item);
 		item = new TreeItem<String>(GuiElemDefine.SITEMAPS);
@@ -44,6 +46,13 @@ public class ConfigurationTabController {
 
 	public void setParent(MainController parent) {
 		this.parent = parent;
+	}
+	
+	public void loadConfDir(File confDir) {
+		if (confDir == null || confDir.isDirectory() == false) {
+			return;
+		}
+		
 	}
 	
 }

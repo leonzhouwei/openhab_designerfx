@@ -1,4 +1,4 @@
-package org.openhab.designerfx.view.model;
+package org.openhab.designerfx.view;
 
 public class GuiElemDefine {
 	

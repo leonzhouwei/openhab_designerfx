@@ -2,6 +2,8 @@ package org.openhab.designerfx.util;
 
 import java.io.File;
 
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.DirectoryChooserBuilder;
 import javafx.stage.Stage;
@@ -20,4 +22,15 @@ public class Util {
 		DirectoryChooser chooser = builder.build();
 		return chooser.showDialog(primaryStage);
 	}
+
+	public static void setErrorMessage(Label msgLabel, String message) {
+		msgLabel.setTextFill(Color.RED);
+		msgLabel.setText(message);
+	}
+
+	public static void setNormalMessage(Label label, String message) {
+		label.setTextFill(Color.BLACK);
+		label.setText(message);
+	}
+	
 }

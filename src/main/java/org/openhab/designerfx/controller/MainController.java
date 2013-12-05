@@ -5,6 +5,7 @@ import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 
@@ -12,12 +13,15 @@ import javax.annotation.Resource;
 
 import org.openhab.designerfx.tabcontroller.ConfigurationTabController;
 import org.openhab.designerfx.util.Util;
-import org.openhab.designerfx.view.model.GuiElemDefine;
+import org.openhab.designerfx.view.GuiElemDefine;
+import org.openhab.designerfx.view.GuiPromptMessage;
 
 public class MainController extends BaseController {
 
 	@FXML
 	private Parent root;
+	@FXML
+	private Label msgLabel;
 	@FXML
 	private Tab confTab;
 	@FXML
@@ -43,6 +47,14 @@ public class MainController extends BaseController {
 	public void openFolder(ActionEvent actionEvent) {
 		File file = Util.getSelectedFolderInPopupWindow(GuiElemDefine.SELECT_CONF_DIR, stage);
 		System.out.println(file == null ? null : file.getPath());
+	}
+	
+	public void setErrorMessage(String message) {
+		Util.setErrorMessage(msgLabel, message);
+	}
+	
+	public void resetMessageLabel() {
+		Util.setNormalMessage(msgLabel, GuiPromptMessage.WELCOME);
 	}
 
 }

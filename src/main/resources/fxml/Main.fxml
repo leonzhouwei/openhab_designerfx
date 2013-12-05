@@ -21,7 +21,7 @@
       <top>
         <AnchorPane prefHeight="-1.0" prefWidth="-1.0">
           <children>
-            <MenuBar AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <MenuBar minHeight="-1.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -30,6 +30,7 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <Label fx:id="msgLabel" alignment="CENTER" contentDisplay="CENTER" disable="false" text="Welcome to openHAB DesignerFX. ^_^" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
           </children>
         </AnchorPane>
       </top>
