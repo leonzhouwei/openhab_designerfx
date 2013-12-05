@@ -17,7 +17,7 @@ public class Util {
 			Stage primaryStage) {
 		DirectoryChooserBuilder builder = DirectoryChooserBuilder.create();
 		builder.title(title);
-		String cwd = System.getProperty(Define.CURRENT_WORKING_DIR_PROP);
+		String cwd = System.getProperty(Define.USER_HOME_DIR);
 		File file = new File(cwd);
 		builder.initialDirectory(file);
 		DirectoryChooser chooser = builder.build();

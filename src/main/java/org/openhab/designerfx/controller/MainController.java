@@ -44,9 +44,13 @@ public class MainController extends BaseController {
 		confTab.setContent(confController.getView());
 	}
 	
+	@FXML
 	public void openFolder(ActionEvent actionEvent) {
-		File file = Util.getSelectedFolderInPopupWindow(GuiElemDefine.SELECT_CONF_DIR, stage);
-		System.out.println(file == null ? null : file.getPath());
+		File folder = Util.getSelectedFolderInPopupWindow(GuiElemDefine.SELECT_CONF_DIR, stage);
+		if (folder == null) {
+			return;
+		}
+		confController.loadConfDir(folder);
 	}
 	
 	public void setErrorMessage(String message) {

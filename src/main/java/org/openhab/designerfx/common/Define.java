@@ -2,6 +2,6 @@ package org.openhab.designerfx.common;
 
 public class Define {
 	
-	public static String CURRENT_WORKING_DIR_PROP = "user.dir";
+	public static String USER_HOME_DIR = "user.home";
 
 }
