@@ -36,6 +36,7 @@ public class MainController extends BaseController {
 	public void init() {
 		stage.setTitle(GuiElemDefine.MAIN_WINDOW_TTTLE);
 		confController.setParent(this);
+		confController.init();
 		confTab.setContent(confController.getView());
 	}
 	
