@@ -6,48 +6,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane fx:id="root" id="AnchorPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.openhab.ui.client.controller.ConfigurationController">
+<AnchorPane id="AnchorPane" fx:id="root" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.openhab.ui.client.controller.ConfigurationController">
   <children>
     <AnchorPane prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <SplitPane dividerPositions="0.47572815533980584" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane dividerPositions="0.2857142857142857" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="180.0">
               <children>
-                <VBox prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <children>
-                    <ToolBar>
-                      <items>
-                        <Button mnemonicParsing="false" text="Add" />
-                      </items>
-                    </ToolBar>
-                    <TreeView prefHeight="-1.0" prefWidth="-1.0" />
-                  </children>
-                </VBox>
+                <TreeView prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <ToolBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <items>
+                    <Label text="openHAB Configuration" />
+                    <Button mnemonicParsing="false" text="+" />
+                  </items>
+                </ToolBar>
               </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="457.0">
               <children>
-                <VBox prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <children>
-                    <ToolBar>
-                      <items>
-                        <Label text="Items &quot;?&quot;" />
-                        <Button mnemonicParsing="false" text="Add" />
-                      </items>
-                    </ToolBar>
-                    <TableView prefHeight="-1.0" prefWidth="-1.0">
-                      <columns>
-                        <TableColumn prefWidth="75.0" text="Type" />
-                        <TableColumn prefWidth="75.0" text="Name" />
-                        <TableColumn prefWidth="75.0" text="Label" />
-                        <TableColumn prefWidth="75.0" text="Icon" />
-                        <TableColumn prefWidth="75.0" text="Group" />
-                        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="105.0" text="Command" />
-                      </columns>
-                    </TableView>
-                  </children>
-                </VBox>
+                <ToolBar prefHeight="-1.0" prefWidth="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <items>
+                    <Label text="Item &quot;e.g. demo&quot;" />
+                    <Button mnemonicParsing="false" text="Add a new item" />
+                  </items>
+                </ToolBar>
+                <TableView prefHeight="417.0" prefWidth="374.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <columns>
+                    <TableColumn prefWidth="75.0" text="Type" />
+                    <TableColumn prefWidth="75.0" text="Name" />
+                    <TableColumn prefWidth="75.0" text="Label" />
+                    <TableColumn prefWidth="75.0" text="Icon" />
+                    <TableColumn prefWidth="75.0" text="Group" />
+                    <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="95.0" text="Command" />
+                  </columns>
+                </TableView>
               </children>
             </AnchorPane>
           </items>
