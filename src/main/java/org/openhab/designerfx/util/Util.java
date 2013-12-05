@@ -1,6 +1,8 @@
 package org.openhab.designerfx.util;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;
@@ -17,8 +19,7 @@ public class Util {
 			Stage primaryStage) {
 		DirectoryChooserBuilder builder = DirectoryChooserBuilder.create();
 		builder.title(title);
-		String cwd = System.getProperty(Define.USER_HOME_DIR);
-		File file = new File(cwd);
+		File file = new File(Define.USER_HOME_DIR);
 		builder.initialDirectory(file);
 		DirectoryChooser chooser = builder.build();
 		return chooser.showDialog(primaryStage);
@@ -49,6 +50,19 @@ public class Util {
 
 	public static void runLaterInJavaFXAppThread(Runnable r) {
 		Platform.runLater(r);
+	}
+	
+	public static List<String> listRegularFileNames(String path, String fileExtension) {
+		File directory = new File(path);
+		String[] array = directory.list();
+		List<String> names = new ArrayList<String>();
+		for (String name : array) {
+			if (name.endsWith(fileExtension)) {
+				System.out.println(name);
+				names.add(name);
+			}
+		}
+		return names;
 	}
 
 }

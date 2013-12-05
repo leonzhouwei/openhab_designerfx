@@ -46,11 +46,16 @@ public class MainController extends BaseController {
 	
 	@FXML
 	public void openFolder(ActionEvent actionEvent) {
-		File folder = Util.getSelectedFolderInPopupWindow(GuiElemDefine.SELECT_CONF_DIR, stage);
-		if (folder == null) {
-			return;
+		try {
+			File folder = Util.getSelectedFolderInPopupWindow(GuiElemDefine.SELECT_CONF_DIR, stage);
+			if (folder == null) {
+				return;
+			}
+			confController.loadConfDir(folder);	
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		confController.loadConfDir(folder);
+		
 	}
 	
 	public void setErrorMessage(String message) {

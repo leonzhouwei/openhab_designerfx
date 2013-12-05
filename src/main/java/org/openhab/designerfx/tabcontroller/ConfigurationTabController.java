@@ -1,13 +1,17 @@
 package org.openhab.designerfx.tabcontroller;
 
 import java.io.File;
+import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
+import org.openhab.designerfx.common.Config;
+import org.openhab.designerfx.common.Define;
 import org.openhab.designerfx.controller.MainController;
+import org.openhab.designerfx.util.Util;
 import org.openhab.designerfx.view.GuiElemDefine;
 
 public class ConfigurationTabController {
@@ -52,7 +56,10 @@ public class ConfigurationTabController {
 		if (confDir == null || confDir.isDirectory() == false) {
 			return;
 		}
-		
+		String path = null;
+		List<String> names = null;
+		path = confDir.getPath() + Define.FILE_SEPARATOR + Config.getItemsDirBaseName();
+		names = Util.listRegularFileNames(path, ".items");
 	}
 	
 }
