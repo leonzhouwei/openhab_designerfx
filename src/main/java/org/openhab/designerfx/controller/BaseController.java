@@ -1,4 +1,4 @@
-package org.openhab.ui.client.javafx.controller;
+package org.openhab.designerfx.controller;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;

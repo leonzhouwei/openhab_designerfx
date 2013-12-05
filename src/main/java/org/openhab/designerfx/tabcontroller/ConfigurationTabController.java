@@ -1,6 +1,6 @@
-package org.openhab.ui.client.javafx.tabcontroller;
+package org.openhab.designerfx.tabcontroller;
 
-import org.openhab.ui.client.javafx.controller.MainController;
+import org.openhab.designerfx.controller.MainController;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;

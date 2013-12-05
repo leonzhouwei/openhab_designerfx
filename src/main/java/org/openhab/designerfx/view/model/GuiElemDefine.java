@@ -1,4 +1,4 @@
-package org.openhab.ui.client.javafx.view.model;
+package org.openhab.designerfx.view.model;
 
 public class GuiElemDefine {
 	

@@ -1,4 +1,4 @@
-package org.openhab.ui.client.javafx.util;
+package org.openhab.designerfx.util;
 
 import java.io.File;
 
@@ -6,7 +6,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.DirectoryChooserBuilder;
 import javafx.stage.Stage;
 
-import org.openhab.ui.client.javafx.common.Define;
+import org.openhab.designerfx.common.Define;
 
 public class Util {
 

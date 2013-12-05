@@ -1,4 +1,4 @@
-package org.openhab.ui.client.javafx;
+package org.openhab.designerfx;
 
 import java.io.IOException;
 
@@ -6,10 +6,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
-import org.openhab.ui.client.javafx.controller.MainController;
+import org.openhab.designerfx.controller.MainController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 
 public class Startup extends Application {
 
@@ -27,7 +26,7 @@ public class Startup extends Application {
 		MainController mc = context.getBean(MainController.class);
 		mc.create(new Stage(), stage);
 		mc.init();
-		
+
 		// 显示主界面
 		mc.show();
 	}

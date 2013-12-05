@@ -1,4 +1,4 @@
-package org.openhab.ui.client.javafx.common;
+package org.openhab.designerfx.common;
 
 public class Define {
 	

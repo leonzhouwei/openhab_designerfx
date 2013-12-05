@@ -1,4 +1,4 @@
-package org.openhab.ui.client.javafx.controller;
+package org.openhab.designerfx.controller;
 
 import java.io.File;
 
@@ -10,9 +10,9 @@ import javafx.scene.control.Tab;
 
 import javax.annotation.Resource;
 
-import org.openhab.ui.client.javafx.tabcontroller.ConfigurationTabController;
-import org.openhab.ui.client.javafx.util.Util;
-import org.openhab.ui.client.javafx.view.model.GuiElemDefine;
+import org.openhab.designerfx.tabcontroller.ConfigurationTabController;
+import org.openhab.designerfx.util.Util;
+import org.openhab.designerfx.view.model.GuiElemDefine;
 
 public class MainController extends BaseController {
 
