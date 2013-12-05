@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="org.openhab.ui.client.controller.MainController">
+  <children>
+    <BorderPane prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <TabPane prefHeight="363.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+            <Tab fx:id="confTab" text="Configuration" />
+            <Tab fx:id="logTab" text="Log" />
+          </tabs>
+        </TabPane>
+      </center>
+      <top>
+        <AnchorPane prefHeight="-1.0" prefWidth="-1.0">
+          <children>
+            <MenuBar AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="关闭" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+          </children>
+        </AnchorPane>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
