@@ -1,11 +1,17 @@
 package org.openhab.ui.client.controller;
 
+import java.io.File;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 
 import javax.annotation.Resource;
 
+import org.openhab.ui.client.tabcontroller.ConfigurationTabController;
+import org.openhab.ui.client.util.Util;
 import org.openhab.ui.client.view.model.GuiElemDefine;
 
 public class MainController extends BaseController {
@@ -16,8 +22,11 @@ public class MainController extends BaseController {
 	private Tab confTab;
 	@FXML
 	private Tab logTab;
+	@FXML
+	private MenuItem openFolderMenuItem;
+	
 	@Resource
-	private ConfigurationController confController;
+	private ConfigurationTabController confController;
 
 	@Override
 	public Parent getView() {
@@ -28,6 +37,11 @@ public class MainController extends BaseController {
 		stage.setTitle(GuiElemDefine.MAIN_WINDOW_TTTLE);
 		confController.setParent(this);
 		confTab.setContent(confController.getView());
+	}
+	
+	public void openFolder(ActionEvent actionEvent) {
+		File file = Util.getSelectedFolderInPopupWindow(GuiElemDefine.SELECT_CONF_DIR, stage);
+		System.out.println(file == null ? null : file.getPath());
 	}
 
 }

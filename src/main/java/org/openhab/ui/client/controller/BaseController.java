@@ -11,8 +11,8 @@ public abstract class BaseController {
 
 	protected Stage stage;
 
-	abstract public Parent getView();
-
+	public abstract Parent getView();
+	
 	public BaseController create(Stage stage, Stage parent) {
 		if (this.stage != null) {
 			return this;
