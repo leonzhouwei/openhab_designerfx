@@ -1,6 +1,7 @@
 package org.openhab.designerfx.tabcontroller;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.List;
 
 import javafx.fxml.FXML;
@@ -65,6 +66,7 @@ public class ConfigurationTabController {
 	
 	public void setNonLeafNode(TreeItem<String> parent, List<String> baseNames) {
 		parent.getChildren().clear();
+		Collections.sort(baseNames);
 		for (String baseName : baseNames) {
 			TreeItem<String> child = new TreeItem<String>(baseName);
 			parent.getChildren().add(child);
