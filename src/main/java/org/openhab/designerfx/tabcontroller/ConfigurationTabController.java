@@ -4,8 +4,11 @@ import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
@@ -41,6 +44,16 @@ public class ConfigurationTabController {
 		treeItemOfSitemaps.getChildren().clear();
 		TreeItem<String> root = new TreeItem<String>(GuiElemDefine.CONFIGRATIONS);
 		treeView.setRoot(root);
+		treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		treeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+			@Override
+			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+				TreeItem<String> selectedItem = (TreeItem<String>) newValue;
+	            System.out.println("Selected Text : " + selectedItem.getValue());
+	            // do what ever you want 
+				parent.setNormalMessage(selectedItem.getValue());
+			}
+		});
 		root.setExpanded(true);
 		root.getChildren().add(treeItemOfItems);
 		root.getChildren().add(treeItemOfSitemaps);

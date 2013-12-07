@@ -1,8 +1,14 @@
 package org.openhab.designer.backend.internal.util;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.openhab.designer.backend.internal.common.Constants;
 
 public class Util {
 
@@ -26,6 +32,27 @@ public class Util {
 			baseNames.add(baseName);
 		}
 		return baseNames;
+	}
+	
+	public static List<String> readAll(File file) throws IOException {
+		BufferedReader br = null;
+		List<String> list = new ArrayList<String>();
+		try {
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(file), Constants.CHARSET_NAME_UTF_8));
+			String s = null;
+			while ((s = br.readLine()) != null) {
+				s = s.trim();
+				if (!s.isEmpty()) {
+					System.out.println(s);
+					list.add(s);
+				}
+			}
+		} finally {
+			if (br != null) {
+				br.close();	
+			}
+		}
+		return list;
 	}
 	
 }

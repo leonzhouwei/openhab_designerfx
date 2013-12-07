@@ -65,5 +65,9 @@ public class MainController extends BaseController {
 	public void resetMessageLabel() {
 		Util.setNormalMessage(msgLabel, GuiPromptMessage.WELCOME);
 	}
+	
+	public void setNormalMessage(String message) {
+		Util.setNormalMessage(msgLabel, message);
+	}
 
 }
