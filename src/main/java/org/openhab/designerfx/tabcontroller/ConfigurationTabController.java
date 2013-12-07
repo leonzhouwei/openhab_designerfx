@@ -57,18 +57,10 @@ public class ConfigurationTabController {
 		this.parent = parent;
 	}
 	
-	public void loadConfDir(File confDir) {
-		if (confDir == null || confDir.isDirectory() == false) {
-			return;
-		}
-//		File dir = null;
-//		List<File> files = null;
-//		dir = new File(confDir.getPath() + Constants.FILE_SEPARATOR + Config.getItemsDirBaseName());
-//		files = Util.listRegularFileNames(dir, Constants.ITEMS_FILE_EXTENSION);
-//		List<String> baseNames = Util.baseNames(files, Constants.ITEMS_FILE_EXTENSION);
+	public void loadConfDir(File confDir) throws Exception {
 		context.setOpenHABHome(confDir.getPath());
-		List<String> baseNames = itemResoureQueryService.listAllNames();
-		setNonLeafNode(treeItemOfItems, baseNames);
+		List<String> names = itemResoureQueryService.listAllNames();
+		setNonLeafNode(treeItemOfItems, names);
 	}
 	
 	public void setNonLeafNode(TreeItem<String> parent, List<String> baseNames) {

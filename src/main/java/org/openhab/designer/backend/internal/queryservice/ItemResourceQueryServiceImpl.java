@@ -1,6 +1,7 @@
 package org.openhab.designer.backend.internal.queryservice;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,6 +22,9 @@ public class ItemResourceQueryServiceImpl implements ItemResourceQueryService {
 	@Override
 	public List<String> listAllNames() {
 		File dir = new File(context.getOpenHABHome() + Constants.FILE_SEPARATOR + Config.getItemsDirBaseName());
+		if (!dir.exists() || dir.isFile()) {
+			return new ArrayList<String>();
+		}
 		List<File> files = Util.listRegularFileNames(dir, Constants.ITEMS_FILE_EXTENSION);
 		List<String> names = Util.baseNames(files, Constants.ITEMS_FILE_EXTENSION);
 		return names;

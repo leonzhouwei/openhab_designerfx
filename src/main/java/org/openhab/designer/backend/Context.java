@@ -7,7 +7,7 @@ public interface Context {
 	 * 
 	 * @param openHABHome
 	 */
-	public void setOpenHABHome(String path);
+	public void setOpenHABHome(String path) throws Exception;
 	
 	public String getOpenHABHome();
 	

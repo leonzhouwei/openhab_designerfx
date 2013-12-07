@@ -53,7 +53,7 @@ public class MainController extends BaseController {
 			}
 			confTabController.loadConfDir(folder);	
 		} catch (Exception e) {
-			e.printStackTrace();
+			Util.setErrorMessage(msgLabel, e.getMessage());
 		}
 		
 	}
