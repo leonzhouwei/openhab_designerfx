@@ -45,9 +45,9 @@ public class ConfigurationTabController {
 		TreeItem<String> root = new TreeItem<String>(GuiElemDefine.CONFIGRATIONS);
 		treeView.setRoot(root);
 		treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		treeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
+		treeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
 			@Override
-			public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+			public void changed(ObservableValue<? extends TreeItem<String>> observable, TreeItem<String> oldValue, TreeItem<String> newValue) {
 				TreeItem<String> selectedItem = (TreeItem<String>) newValue;
 	            System.out.println("Selected Text : " + selectedItem.getValue());
 	            // do what ever you want 
