@@ -10,7 +10,7 @@
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
     <context:annotation-config />
-    <context:component-scan base-package="org.openhab.designerfx" />
+    <context:component-scan base-package="org.openhab.designerfx,org.openhab.designer.backend" />
     
     <bean class="org.openhab.designerfx.Startup" factory-method="getController">
         <constructor-arg>

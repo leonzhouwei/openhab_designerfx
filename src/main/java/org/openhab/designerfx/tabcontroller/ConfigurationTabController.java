@@ -8,14 +8,16 @@ import javafx.scene.Parent;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 
-import org.openhab.designerfx.common.Config;
-import org.openhab.designerfx.common.Constants;
+import javax.annotation.Resource;
+
+import org.openhab.designer.backend.Context;
+import org.openhab.designer.backend.queryservice.ItemResourceQueryService;
 import org.openhab.designerfx.controller.MainController;
-import org.openhab.designerfx.util.Util;
 import org.openhab.designerfx.view.GuiElemDefine;
 
 public class ConfigurationTabController {
 	
+	// GUI-related
 	private MainController parent;
 	
 	@FXML
@@ -24,6 +26,12 @@ public class ConfigurationTabController {
 	private TreeView<String> treeView;
 	private TreeItem<String> treeItemOfItems = new TreeItem<String>(GuiElemDefine.ITEMS);
 	private TreeItem<String> treeItemOfSitemaps = new TreeItem<String>(GuiElemDefine.SITEMAPS);
+	
+	// non GUI-related
+	@Resource
+	private Context context;
+	@Resource
+	private ItemResourceQueryService itemResoureQueryService;
 	
 	public void init() {
 		treeItemOfItems.setExpanded(true);
@@ -53,11 +61,13 @@ public class ConfigurationTabController {
 		if (confDir == null || confDir.isDirectory() == false) {
 			return;
 		}
-		File dir = null;
-		List<File> files = null;
-		dir = new File(confDir.getPath() + Constants.FILE_SEPARATOR + Config.getItemsDirBaseName());
-		files = Util.listRegularFileNames(dir, Constants.ITEMS_FILE_EXTENSION);
-		List<String> baseNames = Util.baseNames(files, Constants.ITEMS_FILE_EXTENSION);
+//		File dir = null;
+//		List<File> files = null;
+//		dir = new File(confDir.getPath() + Constants.FILE_SEPARATOR + Config.getItemsDirBaseName());
+//		files = Util.listRegularFileNames(dir, Constants.ITEMS_FILE_EXTENSION);
+//		List<String> baseNames = Util.baseNames(files, Constants.ITEMS_FILE_EXTENSION);
+		context.setOpenHABHome(confDir.getPath());
+		List<String> baseNames = itemResoureQueryService.listAllNames();
 		setNonLeafNode(treeItemOfItems, baseNames);
 	}
 	
