@@ -45,15 +45,7 @@ public class ConfigurationTabController {
 		TreeItem<String> root = new TreeItem<String>(GuiElemDefine.CONFIGRATIONS);
 		treeView.setRoot(root);
 		treeView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-		treeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
-			@Override
-			public void changed(ObservableValue<? extends TreeItem<String>> observable, TreeItem<String> oldValue, TreeItem<String> newValue) {
-				TreeItem<String> selectedItem = (TreeItem<String>) newValue;
-	            System.out.println("Selected Text : " + selectedItem.getValue());
-	            // do what ever you want 
-				parent.setNormalMessage(selectedItem.getValue());
-			}
-		});
+		treeView.getSelectionModel().selectedItemProperty().addListener(new ChangeListenerImpl());
 		root.setExpanded(true);
 		root.getChildren().add(treeItemOfItems);
 		root.getChildren().add(treeItemOfSitemaps);
@@ -83,6 +75,14 @@ public class ConfigurationTabController {
 		for (String baseName : baseNames) {
 			TreeItem<String> child = new TreeItem<String>(baseName);
 			parent.getChildren().add(child);
+		}
+	}
+	
+	private class ChangeListenerImpl implements ChangeListener<TreeItem<String>> {
+		@Override
+		public void changed(ObservableValue<? extends TreeItem<String>> observable, TreeItem<String> oldValue, TreeItem<String> newValue) {
+			TreeItem<String> selectedItem = (TreeItem<String>) newValue;
+			parent.setNormalMessage(selectedItem.getValue());
 		}
 	}
 	
